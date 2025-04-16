@@ -23,6 +23,10 @@ const Map = () => {
     }, 500);
   }, [origin, destination]);
 
+  if (!origin?.location || !origin?.location.lat || !origin?.location.lng) {
+    return <Text>Loading map...</Text>;
+  }
+
   return (
     <MapView
       ref={mapRef}
@@ -40,11 +44,14 @@ const Map = () => {
     >
       {origin && destination && (
         <MapViewDirections
-          origin={origin.description}
-          destination={destination.description}
+          origin={origin?.description}
+          destination={destination?.description}
           apikey={APIKEY}
           strokeColor="black"
           strokeWidth={3}
+          onError={(errorMessage) => {
+            console.error("Directions error:", errorMessage);
+          }}
         />
       )}
 

@@ -1,0 +1,29 @@
+{
+  "cli": {
+    "version": ">= 16.2.1",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "preview": {
+      "android": {
+        "buildType": "apk"
+      },
+       "env": {
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY":"AIzaSyCpUDwYhaYrGV-lJ_9dfZm19oIbEtjRS9Y",
+        "ENVIRONMENT": "preview"
+      }
+    },
+    "production": {
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
